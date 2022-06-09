@@ -1,0 +1,15 @@
+{%extends 'photos/base.html'%}
+{% block extra_js%}
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="card mt-4">
+        <img src="{{post.image.url}}" class="card-img-top" alt="Fissure in Sandstone"/>
+        <div class="card-body">
+          <h5 class="card-title">{{post.author.username}}: {{post.imagename}}</h5>
+          <p class="card-text">{{post.caption}}</p>
+        </div>
+      </div>
+
+{% endblock %} 

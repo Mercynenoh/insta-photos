@@ -23,11 +23,11 @@ def image_list(request):
 
 def viewPhoto(request, pk):
     post = Post.objects.get(id=pk)
-    if request.method == 'POST':
-        value = request.POST['value']
-        comments = request.POST['comments']
-        if value == 'comments':
-            comments.save()
+    # if request.method == 'POST':
+    #     value = request.POST['value']
+    #     comments = request.POST['comments']
+    #     if value == 'comments':
+    #         comments.save()
     return render(request, 'photos/image.html', {'post':post})
 
 # class ProfileList( ListView):
