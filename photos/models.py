@@ -16,7 +16,7 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.bio
-        
+
 class Post(models.Model):
     image = models.ImageField(upload_to = 'articles/',default='IMAGE')
     imagename =  models.CharField(max_length =30)
@@ -25,7 +25,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
-    # profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     # location = models.ForeignKey(Location, on_delete=models.CASCADE,default='LOCATION')
 
     def __str__(self):
