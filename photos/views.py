@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect,get_object_or_404
 from django.http  import HttpResponse, Http404
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView
-from .models import Post, Profile
+from .models import Post, Profile,  FollowersCount
 from django import template
 from django.db import models
 from django.contrib.auth.decorators import login_required
@@ -29,6 +29,16 @@ def viewPhoto(request, pk):
         if value == 'comments':
             comments.save()
     return render(request, 'photos/image.html', {'post':post})
+
+def followers_count(request):
+    if request.method == 'POST':
+        value = request.POST['value']
+        user = request.POST['user']
+        follower =request.POST['follower']
+        if value == 'follow':
+            followers_cnt = FollowersCount.objects.create(follower=follower, user=user)
+            followers_cnt.save()
+        return redirect('/?user='+user)
 
 class ProfileList( ListView):
     model = Profile
