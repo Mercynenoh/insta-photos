@@ -57,7 +57,7 @@ MIDDLEWARE = [
      'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-# ROOT_URLCONF = 'instagram.urls'
+ROOT_URLCONF = 'instagram.urls'
 
 TEMPLATES = [
     {
