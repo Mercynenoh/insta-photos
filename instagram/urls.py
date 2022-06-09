@@ -27,6 +27,7 @@ urlpatterns = [
     path('', ImageList.as_view(), name='list'),
     path('profile/', ProfileList.as_view(), name='list'),
     path('new/', ImageCreate.as_view(), name='new'),
+    path('new/', ProfileCreate.as_view(), name='profile'),
     path('accounts/', include('django_registration.backends.one_step.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/profile/', auth_views.LoginView.as_view(template_name='photos/post.html')),  

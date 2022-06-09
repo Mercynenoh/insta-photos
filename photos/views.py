@@ -50,7 +50,13 @@ class ProfileList( ListView):
 class ImageCreate(LoginRequiredMixin,CreateView):
     # login_url = '/accounts/login'
     model = Post
-    fields = ['image', 'imagename', 'caption', 'author', 'profile', 'comments']
+    fields = ['image', 'imagename', 'caption', 'author']
+    success_url = '/'
+
+class ProfileCreate(LoginRequiredMixin,CreateView):
+    # login_url = '/accounts/login'
+    model = Post
+    fields = ['pic', 'bio']
     success_url = '/'
 class ItemUpdateView(UpdateView):
     model = Post
