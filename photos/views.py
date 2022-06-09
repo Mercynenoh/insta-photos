@@ -36,3 +36,9 @@ class ProfileList( ListView):
 
     def get_queryset(self):
         return Profile.objects.all()
+
+class ImageCreate(CreateView):
+    # login_url = '/accounts/login'
+    model = Post
+    fields = ['image', 'imagename', 'caption', 'author', 'profile', 'location', 'comments']
+    success_url = '/'

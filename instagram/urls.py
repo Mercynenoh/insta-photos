@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from photos.views import ImageList, ProfileList
+from photos.views import ImageList, ProfileList, ImageCreate
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', include('photos.urls')),
     path('', ImageList.as_view(), name='list'),
-      path('profile/', ProfileList.as_view(), name='list'),
+    path('profile/', ProfileList.as_view(), name='list'),
+    path('new/', ImageCreate.as_view(), name='new'),
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

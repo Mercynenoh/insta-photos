@@ -5,7 +5,8 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Profile(models.Model):
     pic = models.ImageField(upload_to = 'articles/',default='IMAGE')
-    bio = models.TextField()
+    bio = models.TextField(), 
+    author = models.ForeignKey(User, on_delete=models.CASCADE, default="")
     # location = models.ForeignKey(Location, on_delete=models.CASCADE,default='LOCATION')
     
     # def save_image(self):
