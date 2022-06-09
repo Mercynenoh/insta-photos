@@ -7,16 +7,14 @@ class Profile(models.Model):
     pic = models.ImageField(upload_to = 'articles/',default='IMAGE')
     bio = models.TextField(), 
     author = models.ForeignKey(User, on_delete=models.CASCADE, default="")
-    # location = models.ForeignKey(Location, on_delete=models.CASCADE,default='LOCATION')
+
     
-    # def save_image(self):
-    #     self.save()
+    def save_image(self):
+        self.save()
 
-    # def save_bio(self):
-    #     self.save()
+    def save_bio(self):
+        self.save()
 
-    def __str__(self):
-        return self.bio
 
 class Post(models.Model):
     image = models.ImageField(upload_to = 'articles/',default='IMAGE')
@@ -27,10 +25,11 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    # location = models.ForeignKey(Location, on_delete=models.CASCADE,default='LOCATION')
+
+    def save_post(self):
+        self.save()
 
     def __str__(self):
         return self.imagename
 
-    def save_post(self):
-        self.save()
+   

@@ -42,3 +42,5 @@ class ImageCreate(CreateView):
     model = Post
     fields = ['image', 'imagename', 'caption', 'author', 'profile', 'comments']
     success_url = '/'
+class ItemUpdateView(UpdateView):
+    model = Post

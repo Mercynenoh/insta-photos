@@ -27,7 +27,7 @@
 
     </div>
     {% for image in object_list %}
-    <div class="card mt-4">
+    <div class="card mt-4 mb-4">
         <a
         class="open-image"
         href="{% url 'image' image.id %}"
@@ -36,6 +36,8 @@
         <div class="card-body">
           <p class="card-title">{{image.author.username}}: {{image.imagename}}</p>
           <p class="card-text">{{image.caption}}</p>
+          <h5>Comments</h5>
+          <p>{{image.author}}: {{image.comments}}</p>
         </div>
       </div>
       {% endfor %}
