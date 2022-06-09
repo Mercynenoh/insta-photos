@@ -4,6 +4,23 @@
 {% endblock %}
 {% block content %}
 <div class="container-fluid">
+    <div class="top mt-4">
+        <div
+  class="bg-image"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/new/fluid/nature/011.webp');
+    height: 100px;
+  "
+>
+
+
+
+<a href="{% url 'new' %}" class="btn btn-light ml-4 mt-4 new">
+     Create New post
+</a>
+</div>
+        
+    </div> 
     <div class="col-md-9">
         <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
      </div><!-- /.modal -->

@@ -40,5 +40,5 @@ class ProfileList( ListView):
 class ImageCreate(CreateView):
     # login_url = '/accounts/login'
     model = Post
-    fields = ['image', 'imagename', 'caption', 'author', 'profile', 'location', 'comments']
+    fields = ['image', 'imagename', 'caption', 'author', 'profile', 'comments']
     success_url = '/'
