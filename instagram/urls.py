@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from photos.views import ImageList
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', include('photos.urls')),
+    path('', ImageList.as_view(), name='list'),
 ]
