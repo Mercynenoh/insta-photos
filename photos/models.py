@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class Profile(models.Model):
     pic = models.ImageField(upload_to = 'articles/',default='IMAGE')
     bio = models.TextField()
-    location = models.ForeignKey(Location, on_delete=models.CASCADE,default='LOCATION')
+    # location = models.ForeignKey(Location, on_delete=models.CASCADE,default='LOCATION')
     
     # def save_image(self):
     #     self.save()
