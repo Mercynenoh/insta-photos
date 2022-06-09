@@ -54,3 +54,16 @@ class ImageCreate(LoginRequiredMixin,CreateView):
     success_url = '/'
 class ItemUpdateView(UpdateView):
     model = Post
+
+def search_results(request):
+
+    if 'post' in request.GET and request.GET["post"]:
+        search_term = request.GET.get("post")
+        searched_posts = Post.search_by_author(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'pictures/search.html',{"message":message,"posts": searched_posts})
+
+    else:
+        message = "Ooops we can't find that!!"
+        return render(request, 'pictures/search.html',{"message":message})
