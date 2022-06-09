@@ -48,16 +48,15 @@ class ProfileList( ListView):
         return Profile.objects.all()
 
 class ImageCreate(LoginRequiredMixin,CreateView):
-    # login_url = '/accounts/login'
     model = Post
     fields = ['image', 'imagename', 'caption', 'author']
     success_url = '/'
 
 class ProfileCreate(LoginRequiredMixin,CreateView):
-    # login_url = '/accounts/login'
-    model = Post
+    model = Profile
     fields = ['pic', 'bio']
     success_url = '/'
+
 class ItemUpdateView(UpdateView):
     model = Post
 

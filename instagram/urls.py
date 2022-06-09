@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from photos.views import ImageList, ProfileList, ImageCreate
+from photos.views import ImageList, ProfileList, ImageCreate,ProfileCreate
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.auth import views as auth_views
@@ -27,7 +27,7 @@ urlpatterns = [
     path('', ImageList.as_view(), name='list'),
     path('profile/', ProfileList.as_view(), name='list'),
     path('new/', ImageCreate.as_view(), name='new'),
-    path('new/', ProfileCreate.as_view(), name='profile'),
+    path('newprofile/', ProfileCreate.as_view(), name='newprofile'),
     path('accounts/', include('django_registration.backends.one_step.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/profile/', auth_views.LoginView.as_view(template_name='photos/post.html')),  
