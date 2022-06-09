@@ -30,6 +30,7 @@
     </div>
     {% for image in object_list %}
     <div class="card mt-4 mb-4">
+        <img src="{{ image.profile.pic.url }}" height="100px" width="100px" style="border-radius:50%; " class="">
         <a
         class="open-image"
         href="{% url 'image' image.id %}"
