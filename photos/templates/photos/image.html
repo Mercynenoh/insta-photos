@@ -7,8 +7,17 @@
     <div class="card mt-4">
         <img src="{{post.image.url}}" class="card-img-top" alt="Fissure in Sandstone"/>
         <div class="card-body">
-          <h5 class="card-title">{{post.author.username}}: {{post.imagename}}</h5>
+          <p class="card-title">{{post.author.username}}: {{post.imagename}}</p>
           <p class="card-text">{{post.caption}}</p>
+            <form method="POST" action="{% url 'list' %}">
+                {% csrf_token %}
+                {{ form.as_p}}
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Comment</label>
+                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="comment" enctype="multipart/form-data">
+                </div>
+                <button type="submit" class="btn btn-secondary">Submit</button>
+              </form>
         </div>
       </div>
 
