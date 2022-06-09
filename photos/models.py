@@ -40,5 +40,11 @@ class Post(models.Model):
 
     def __str__(self):
         return self.imagename
+    
+
+    @classmethod
+    def search_by_category(cls,search_term):
+        pictures = cls.objects.filter(category__category__icontains=search_term)
+        return pictures
 
    
