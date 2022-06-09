@@ -47,6 +47,11 @@ class ProfileList( ListView):
     def get_queryset(self):
         return Profile.objects.all()
 
+    def profile_list(request):
+        profiles = models.Profile.objects.all()
+        return render(request, "photos/post_list.html", {'profiles':profiles})
+
+
 class ImageCreate(LoginRequiredMixin,CreateView):
     model = Post
     fields = ['image', 'imagename', 'caption', 'author']
@@ -54,7 +59,7 @@ class ImageCreate(LoginRequiredMixin,CreateView):
 
 class ProfileCreate(LoginRequiredMixin,CreateView):
     model = Profile
-    fields = ['pic', 'bio']
+    fields = ['pic']
     success_url = '/'
 
 class ItemUpdateView(UpdateView):
