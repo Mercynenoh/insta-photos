@@ -8,12 +8,13 @@
         <div class="col md-4">
             <div class="card mt-4">
                 <img src="{{ post.profile.pic.url }}" height="100px" width="100px" style="border-radius:50%; float: left; " class="">
+                {{user.username}}
                 <form action="/followers_count/" method="POST" enctype="multipart/form-data">
                     {% csrf_token%}
                     <input type="hidden" name="user" value="{{current.user}}" readonly/>
                     <input type="hidden" name="follower" value="{{user.username}}" readonly/>
                     <input type="hidden" name="value" value="follow" readonly/>
-                    <button class="btn btn-dark profile-edit-btn-dark mb-1 ml-3" type="submit" >
+                    <button class="btn btn-dark profile-edit-btn-dark mb-1 ml-2" type="submit" >
                        Follow
                     </button>
                 <img src="{{post.image.url}}" class="card-img-top" alt="Fissure in Sandstone"/>
