@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
-class ImageList(ListView):
+class ImageList(LoginRequiredMixin, ListView):
     model = Post
     template_name = 'photos/post_list.html'
 
@@ -37,7 +37,7 @@ class ProfileList( ListView):
     def get_queryset(self):
         return Profile.objects.all()
 
-class ImageCreate(CreateView):
+class ImageCreate(LoginRequiredMixin,CreateView):
     # login_url = '/accounts/login'
     model = Post
     fields = ['image', 'imagename', 'caption', 'author', 'profile', 'comments']

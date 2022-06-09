@@ -18,6 +18,8 @@ from django.urls import path, include
 from photos.views import ImageList, ProfileList, ImageCreate
 from django.conf.urls.static import static
 from django.conf import settings
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
@@ -25,4 +27,9 @@ urlpatterns = [
     path('', ImageList.as_view(), name='list'),
     path('profile/', ProfileList.as_view(), name='list'),
     path('new/', ImageCreate.as_view(), name='new'),
+    path('accounts/', include('django_registration.backends.one_step.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/profile/', auth_views.LoginView.as_view(template_name='photos/post.html')),  
+    path('logout/', auth_views.LogoutView.as_view(template_name='photos/post_list.html')),
+    path('tinymce/', include('tinymce.urls')),
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
